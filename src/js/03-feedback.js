@@ -22,12 +22,14 @@ function onTextareaInput(evt) {
     FORM_KEY,
     JSON.stringify({ email: emailRef.value, message: messageRef.value })
   );
-
-  // console.log(localStorage.getItem(FORM_KEY));
 }
 
 function onFormSubmit(evt) {
   evt.preventDefault();
+
+  if (emailRef.value === '' || messageRef.value === '') {
+    return alert('Please fill in all the fields!');
+  } else console.log(localStorage.getItem(FORM_KEY));
 
   evt.currentTarget.reset();
 
